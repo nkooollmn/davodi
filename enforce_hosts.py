@@ -8,8 +8,8 @@ import json, os, time, urllib.error, urllib.request, urllib.parse
 
 API = "http://127.0.0.1:8000"
 LOCKED_TAG = json.load(open("/opt/locked_inbound.json"))["tag"]
-LOCKED_REMARK = "جینکس | 𝗝𝗶𝗻𝗫"                    # every config name starts with this
-OLD_REMARKS = ("جینکس | 𝙎𝙪𝙥𝙚𝙧 𝗝𝗶𝗻𝗫",)               # names of the previous version -> renamed automatically
+LOCKED_REMARK = "AbyssTunnel🇳🇱"                    # every config name starts with this
+OLD_REMARKS = ("جینکس | 𝗝𝗶𝗻𝗫", "جینکس | 𝙎𝙪𝙥𝙚𝙧 𝗝𝗶𝗻𝗫")               # names of the previous version -> renamed automatically
 DOMAIN = os.environ.get("PANEL_DOMAIN") or os.environ.get("RAILWAY_PUBLIC_DOMAIN", "")
 CF_HOST = os.environ.get("CF_TUNNEL_HOSTNAME", "") if os.environ.get("CF_TUNNEL_TOKEN") else ""
 def _list(name, default=""):
@@ -102,7 +102,7 @@ if not DOMAIN and CF_HOST:
     DOMAIN = CF_HOST  # tunnel-only setup: everything goes through the tunnel hostname
 
 def name(route, tag):
-    return f"{LOCKED_REMARK} ✦ {route} · {PROTO.get(tag, 'JinX')}"
+    return LOCKED_REMARK
 
 def base(path, address=None, sni=None, port=443, frag="", alpn="http/1.1", remark=LOCKED_REMARK, fp="chrome", mux=False):
     sni = sni or DOMAIN
