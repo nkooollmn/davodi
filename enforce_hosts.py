@@ -102,7 +102,7 @@ if not DOMAIN and CF_HOST:
     DOMAIN = CF_HOST  # tunnel-only setup: everything goes through the tunnel hostname
 
 def name(route, tag):
-    return f"{LOCKED_REMARK} ✦ {route} · {PROTO.get(tag, 'JinX')}"
+    return LOCKED_REMARK
 
 def base(path, address=None, sni=None, port=443, frag="", alpn="http/1.1", remark=LOCKED_REMARK, fp="chrome", mux=False):
     sni = sni or DOMAIN
